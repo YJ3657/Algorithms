@@ -5,6 +5,7 @@ import heapq
 # Assume that number of vertices and graph are given
 V = 13
 graph = defaultdict(list)
+INF = 987654321
 
 class ShortestPath(object):
    # Dijkstra's method that returns the shortest distance from one source node to all other nodes
@@ -12,7 +13,7 @@ class ShortestPath(object):
       # Min-heap-queue for taking out the smallest item 
       hq = [(0, src)]
       # Distance variable to store all distances
-      dist = defaultdict(int)
+      dist = defaultdict(INF)
 
       while hq:
         distance, node1 = heapq.heappop(hq)
@@ -32,7 +33,7 @@ class ShortestPath(object):
       # Min-heap-queue for taking out the smallest item 
       hq = [(0, src)]
       # Distance variable to store all distances
-      dist = defaultdict(int)
+      dist = defaultdict(INF)
 
       while hq:
         distance, node1 = heapq.heappop(hq)
@@ -49,7 +50,7 @@ class ShortestPath(object):
     # Dijkstra's method that does not use heap queue
    def dijkstra3(self, src: int) -> List[int]:
       visited = [False] * V
-      dist = [maxsize] * V
+      dist = [INF] * V
       dist[src] = 0
       while(True):
         closest = selected = maxsize
@@ -70,7 +71,7 @@ class ShortestPath(object):
     # We assume that node's value is in range of 0 to size - 1, inclusive
    def bellman_ford(self, src: int) -> List[int]:
       
-      dist = [maxsize] * V
+      dist = [INF] * V
       dist[src] = 0
       for iter in range(V):
         success = False
@@ -90,7 +91,7 @@ class ShortestPath(object):
 
    # Warshall-Floyd method with adjacency matrix
    def warshall_floyd1(self, edges: List[List[int]]) -> List[List[int]]:
-      dist = [([maxsize] * V) for _ in range(V)]
+      dist = [([INF] * V) for _ in range(V)]
 
       for node1, node2, weight in edges:
         dist[node1][node2] = weight
@@ -107,7 +108,7 @@ class ShortestPath(object):
    
    # Warshall-Floyd method with reconstructing the shortest path between two nodes
    def warshall_floyd2(self, edges: List[List[int]]) -> List[int]:
-      dist = [([maxsize] * V) for _ in range(V)]
+      dist = [([INF] * V) for _ in range(V)]
       via = [-1] * V
       for node1, node2, weight in edges:
         dist[node1][node2] = weight
