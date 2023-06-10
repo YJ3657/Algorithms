@@ -56,4 +56,41 @@ class NetworkFlow {
     }
     return totalFlow;
   }
+
+  // Method for Bipartite Matching for unweighted graph using DFS the returns the maximum 
+  // cardinality bipartite matching (MCBM) (This will also be included in a separate file for matching)
+  // Can think of it as a simplified network flow algorithm for weighted graph with all equal 
+  // weights
+  // Corresponding number of vertices for A and B bipartite sets
+  int n, m;
+  bool adj[n][m];
+  vector<int> aMatch, bMatch;
+  vector<bool> visited;
+  
+  bool dfs(int a) {
+    if(visited[a]): return false;
+    
+    visited[a] = true;
+    
+    for(int b = 0; b < m; b++) 
+      if(adj[a][b]) 
+        if(bMatch[b] == -1 || dfs(bMatch[b])) {
+          aMatch[a] = b;
+          bMatch[b] = a;
+          return true;
+        }
+    return false;
+  }
+
+int bipartiteMatch(void) {
+  // Initially, we don't have any matches in our bipartite matching
+  aMatch = vector<int>(n, - 1);
+  bMatch = vector<int>(m, -1);
+  int size = 0;
+  for(int start = 0; start < n; start++) {
+    visited = vector<bool>(n, false);
+    if(dfs(start)): ++size;
+  }
+  return size;
+}
 }
