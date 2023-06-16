@@ -12,7 +12,7 @@ class FastIO {
 
   // Second Way (Using cout and cin):
   // This method will be sufficient for most problems
-  // Change 'endl' to '\n' for the buffer issue 
+  // Change 'endl' to '\n' for the buffer issue
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
   // You can adjust the buffer size by the following code
