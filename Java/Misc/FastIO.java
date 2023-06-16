@@ -7,8 +7,8 @@ import java.util.StringTokenizer;
 // Specifically for the Scanner Class
 import java.util.Scanner;
 
+// There could be more files added in future
 public class FastIO {
-  
   // First Way (Using Scanner Class):
   public static void firstMethod(String[] args) {
     try (Scanner s = new Scanner(System.in)) {

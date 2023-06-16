@@ -3,8 +3,8 @@
 #include <unistd.h>
 using namespace std;
 
+// There could be more files added in future
 class FastIO {
-
   // First Way (Using printf and scanf):
   // You can adjust the buffer size by the following code
   setvbuf(stdin, NULL, _IOFBF, 16 * (1<<20)); // 16MB
