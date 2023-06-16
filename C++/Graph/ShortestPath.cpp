@@ -118,6 +118,8 @@ class ShortestPath {
         }
         if(!updated) break;
       }
+      // If updated after V iterations, then it means that there is a negative cycle
+      // And we return an empty array 
       if(updated) upper.clear();
       return upper;
     } 

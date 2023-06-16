@@ -10,6 +10,7 @@ _str = str
 str = lambda x=b"": x if type(x) is bytes else _str(x).encode()
 BUFSIZE = 8192
 
+# There could be more files added in future
 class FastIO(IOBase):
     newlines = 0
 
