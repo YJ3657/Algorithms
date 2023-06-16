@@ -33,5 +33,13 @@ public class NumericalError {
     }
     return -1;  // Target not found in the array
   }
-
+  static public int gcd(int a, int b) { return b==0 ? a : gcd(b, a%b); }
+  // Example 2. Least Common Multiple
+  public static int lcm(int a, int b) {
+    // First way (Using promotion)
+    // long result1 = (a * (long)b) / gcd(a, b);
+    // Second way (using arithmetic trick)
+    int result = a * (b / gcd(a, b));
+    return result;
+  }
 }
