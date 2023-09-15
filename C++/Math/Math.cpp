@@ -56,6 +56,23 @@ class Math {
     return isPrime;
   }
 
+  // Eratosthenes's sieve with bit masking (saves space - we use N / 8 byte to find the element)
+  // Limitation - must know the size beforehand
+  unsigned char *beratosthenes_sieve(int n) {
+    unsigned char isPrime[(n + 7) / 8];
+    memset(isPrime, 255, sizeof(isPrime));
+    isPrime[0 >> 3] &= ~(1 << (0 & 7));
+    isPrime[1 >> 3] &= ~(1 << (1 & 7));
+
+    for(int number1 = 2; number1 <= int(sqrt(n)); number1++) {
+      if(isPrime[number1 >> 3] & (1 << (k & 7))) {
+        for(int number2 = number1 * number1; number2 <= n; number2 += number1){
+          isPrime[number2 >> 3] &= ~(1 << (number2 & 7));
+        }
+      }
+    }
+  }
+
   // Euclidean Algorithm
   int gcd(int p, int q) {
     if(q == 0) return p;
