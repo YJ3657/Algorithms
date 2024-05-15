@@ -28,6 +28,8 @@ class ShortestPath {
         for(int i = 0; i < adj[here].size(); i++) {
           int there = adj[here][i].second;
           int nextDist = cost + adj[here][i].first;
+          // We need this as we may have some elements in queue 
+          // with same weight
           if(nextDist < dist[there]) {
             dist[there] = nextDist;
             pq.push(make_pair(-nextDist, there));

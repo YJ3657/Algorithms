@@ -15,7 +15,7 @@ class Math {
     if (n == 2) return true;
     if ((n % 2) == 0) return false;
 
-    for(int number = 3; number <= int(sqrt(n)); number += 2) {
+    for(int number = 3; number * number <= sqrt(n); number += 2) {
       if ((n % number) == 0) return false;
     }
     return true;
@@ -29,7 +29,7 @@ class Math {
         n /= 2;
       }    
 
-    for(int number = 3; number <= int(sqrt(n)); number += 2) {
+    for(int number = 3; number * number <= n; number += 2) {
       while((n % number) == 0) {
         prifact.push_back(number);
         n /= number;
@@ -46,7 +46,7 @@ class Math {
     memset(isPrime, 1, sizeof(isPrime));
     isPrime[0] = isPrime[1] = false;
     
-    for(int number1 = 2; number1 <= int(sqrt(n)); number1++) {
+    for(int number1 = 2; number1 * number1 <= n; number1++) {
       if (isPrime[number1]) {
         for(int number2 = number1 * number1; number2 <= n; number2 += number1){
           isPrime[number2] = false;
@@ -91,9 +91,9 @@ class Math {
  }
 
   // Least Common Multiple
-  int lcm(int p, int q) {
-    return (abs(p) * abs(q)) / gcd(p, q);
-  }
+int lcm(int p, int q) {
+  return (abs(p) * abs(q)) / gcd(p, q);
+}
 
   // Linear Congruences for finding x for x ≡ x_0 (mod n / gcd(a, n)) and x = x_0 + (n / gcd(a, n)) * t 
   // where ax ≡ b (mod n)
