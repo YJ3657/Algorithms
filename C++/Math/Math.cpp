@@ -14,8 +14,8 @@ class Math {
     if (n <= 1) return false;
     if (n == 2) return true;
     if ((n % 2) == 0) return false;
-
-    for(int number = 3; number * number <= sqrt(n); number += 2) {
+    // Add 2 for only checking odd numbers. 
+    for(int number = 3; number * number <= n; number += 2) {
       if ((n % number) == 0) return false;
     }
     return true;

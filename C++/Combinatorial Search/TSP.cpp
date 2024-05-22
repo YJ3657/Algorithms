@@ -138,7 +138,7 @@ double mstHeuristic(int here, const vector<bool>& visited) {
 
 // if the remaining city count is less than CACHED_DEPTH, switch to dp
 const int CACHED_DEPTH = 5;
-// dp(here, visited) = cache[here][남은 도시의 수][visited]
+// dp(here, visited) = cache[here][count of remaining cities][visited]
 map<int, double> cache[MAX][CACHED_DEPTH + 1];
 // here: current position
 // visited: visit status
