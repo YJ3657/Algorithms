@@ -46,6 +46,10 @@ class Math {
     memset(isPrime, 1, sizeof(isPrime));
     isPrime[0] = isPrime[1] = false;
     
+    // We know that every positive integer less n is prime as
+    // long as it is not divisible by the square root of it
+    // that will be less than the square root of n, so we have 
+    // an outer for loop like this.
     for(int number1 = 2; number1 * number1 <= n; number1++) {
       if (isPrime[number1]) {
         for(int number2 = number1 * number1; number2 <= n; number2 += number1){
